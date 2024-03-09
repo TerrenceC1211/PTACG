@@ -6616,7 +6616,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 240
+        y: 215
         width: 16
         height: 16
       alignment: 0
@@ -6636,8 +6636,8 @@ TextureImporter:
       name: 0x72_DungeonTilesetII_v1.6_313
       rect:
         serializedVersion: 2
-        x: 64
-        y: 240
+        x: 62
+        y: 214
         width: 16
         height: 16
       alignment: 0
@@ -7500,9 +7500,9 @@ TextureImporter:
         x: 32
         y: 240
         width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.25, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -7519,11 +7519,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 256
+        y: 240
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.375}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -7542,9 +7542,9 @@ TextureImporter:
         x: 80
         y: 240
         width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.25, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -7561,11 +7561,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 256
+        y: 239
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 33
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
