@@ -5,15 +5,17 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public static Action<int> OnHealthChanged;
+
     [Header("Health")]
-    [SerializeField] private float initialHealth = 10f;
-    [SerializeField] private float maxHealth = 10f;
+    [SerializeField] private int initialHealth = 8;
+    [SerializeField] private int maxHealth = 8;
 
     [Header("Settings")]
     [SerializeField] private bool destroyObject;
 
     // Controls the current health of the object    
-    public float CurrentHealth { get; set; }
+    public int CurrentHealth { get; set; }
 
     private void Awake()
     {
@@ -26,6 +28,10 @@ public class Health : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             TakeDamage(1);
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            AddLife(1);
         }
     }
 
@@ -43,7 +49,24 @@ public class Health : MonoBehaviour
         {
             Die();
         }
+
+        UpdateLifesUI();
     }
+
+    public void AddLife(int Heal)
+    {
+        if (CurrentHealth >= maxHealth)
+        {
+            return;
+        }
+
+        CurrentHealth += Heal;
+
+        UpdateLifesUI();
+    }
+
+
+
 
     // Kills the game object
     private void Die()
@@ -58,6 +81,8 @@ public class Health : MonoBehaviour
         {
             DestroyObject();
         }
+
+        Debug.Log("Die");
     }
 
     // Revive this game object    
@@ -71,6 +96,7 @@ public class Health : MonoBehaviour
 
         gameObject.SetActive(true);*/
 
+        Debug.Log("Revive");
     }
 
     // If destroyObject is selected, we destroy this game object
@@ -78,6 +104,12 @@ public class Health : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    private void UpdateLifesUI()
+    {
+        OnHealthChanged?.Invoke(CurrentHealth);
+    }
+
 
 }
 
