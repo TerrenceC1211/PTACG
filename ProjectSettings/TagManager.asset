@@ -68,3 +68,6 @@ TagManager:
   - name: TOP
     uniqueID: 2292963829
     locked: 0
+  - name: FrontMapDeco
+    uniqueID: 1541124753
+    locked: 0
