@@ -2,39 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterComponents : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
-    protected float horizontalInput;
-    protected float verticalInput;
+    //[SerializeField] private float speed = 20f;  //REMOVE it, because we no longer use it anymore
 
-    protected CharacterController controller;
+    // Controls the current movement of this character    
+    public Vector2 CurrentMovement { get; set; }
 
-    protected virtual void Start()
+    // Internal
+    private Rigidbody2D myRigidbody2D;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        controller = GetComponent<CharacterController>();
+        myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    protected virtual void Update()
+    // Update is called once per frame
+    void FixedUpdate()
     {
-        HandleAbility();
+        MoveCharacter();
     }
 
-    // Main method. Here we put the logic of each ability
-    protected virtual void HandleAbility()
+    private void MoveCharacter()
     {
-        InternalInput();
+        Vector2 currentMovePosition = myRigidbody2D.position + CurrentMovement * Time.fixedDeltaTime;
+        myRigidbody2D.MovePosition(currentMovePosition);
     }
 
-    // Here we get the necessary input we need to perform our actions    
-    protected virtual void HandleInput()
+    // Sets the current movement of our character
+    public void SetMovement(Vector2 newPosition)
     {
-
-    }
-
-    // Here get the main input we need to control our character
-    protected virtual void InternalInput()
-    {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        CurrentMovement = newPosition;
     }
 }
